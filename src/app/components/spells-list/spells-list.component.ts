@@ -7,14 +7,12 @@ import { GetSpellsService } from '../../services/get-spells.service';
   styleUrls: ['./spells-list.component.sass']
 })
 export class SpellsListComponent implements OnInit {
-  spells: Array<Object>;
+  object: any;
 
   constructor(private getSpellService: GetSpellsService) { }
   ngOnInit() { this.showSpells() }
 
   showSpells() {
-    this.spells = this.getSpellService.getSpells()
-    console.log(this.spells)
-    return this.spells
+    this.getSpellService.getSpells().subscribe(data => this.object = data)
   }
 }
