@@ -1,0 +1,16 @@
+
+#main {
+    display: flex;
+    justify-content: center;
+}
+.card-text {
+    margin-bottom: 0;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+
+    .btn {
+        margin: 2.5px;
+    }
+}

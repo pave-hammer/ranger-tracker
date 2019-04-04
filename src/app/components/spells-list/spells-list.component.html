@@ -1,4 +1,21 @@
-<p>
-  spells-list works!
-</p>
-{{object}}
+
+<div id="main" *ngFor="let spell of mySpells">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{spell.name}}</h5>
+      <p class="card-text school"><i>{{spell.school.name}}</i></p>
+      <p class="card-text casting time"><b>Casting Time:</b> {{spell.casting_time}}</p>
+      <p class="card-text range"><b>Range:</b> {{spell.range}}</p>
+      <p class="card-text components"><b>Components:</b> {{spell.components}}</p>
+      <p class="card-text duration"><b>Duration:</b> {{spell.duration}}</p>
+      <p class="card-text desc">{{spell.desc}}</p>
+      <div *ngIf="spell.dmgDice">
+        <p class="card-text dmg">{{spell.dmgDice.min}}d{{spell.dmgDice.max}} {{spell.dmgType}} damage.</p>
+      </div>
+      <div class="buttons">
+        <button class="btn btn-primary col-md-6" (click)="attackRoll()">Attack Roll</button>
+        <button class="btn btn-primary col-md-6" (click)="damageRoll()">Damage Roll</button>
+      </div>
+    </div>
+  </div>
+</div>

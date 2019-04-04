@@ -1,18 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { GetSpellsService } from '../../services/get-spells.service';
+import Spells from '../../../assets/spells.json';
 
 @Component({
   selector: 'app-spells-list',
   templateUrl: './spells-list.component.html',
-  styleUrls: ['./spells-list.component.sass']
+  styleUrls: ['./spells-list.component.scss']
 })
 export class SpellsListComponent implements OnInit {
-  object: any;
+  constructor() { this.allSpells = Spells }
+  ngOnInit() { this.getSpells() }
 
-  constructor(private getSpellService: GetSpellsService) { }
-  ngOnInit() { this.showSpells() }
+  allSpells: any;
+  mySpells: Array<any> = [];
 
-  showSpells() {
-    this.getSpellService.getSpells().subscribe(data => this.object = data)
+  getSpells() {
+    const index: Array<number> = [163, 185, 79, 235, 209, 320]
+    const result = index.map(idx => {
+      return this.allSpells.filter(spell => {
+        return spell.index === idx ? this.mySpells.push(spell) : null
+      })
+    })
+    return result
+  }
+  attackRoll() {
+    console.log("wired up boss")
+  }
+  damageRoll() {
+    console.log("wired up boss")
   }
 }
