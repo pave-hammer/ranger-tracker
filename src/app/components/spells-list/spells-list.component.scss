@@ -16,9 +16,11 @@
 }
 .buttons {
     display: flex;
-    justify-content: center;
 
     .btn {
         margin: 2.5px;
+    }
+    .attack {
+        margin-left: 14px;
     }
 }

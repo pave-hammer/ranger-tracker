@@ -9,10 +9,12 @@ import { AbilityDataService } from '../../services/ability-data.service'
 export class NavbarComponent implements OnInit {
   constructor(private abilityDataService: AbilityDataService) { this.getAbilities() }
   ngOnInit() { }
+
   abilities: Array<Object> = []
+  attackRoll: number;
+  damageRoll: number;
 
   getAbilities() {
     return this.abilities = this.abilityDataService.abilities()
   }
-
 }

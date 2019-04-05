@@ -7033,7 +7033,7 @@
     {
         "index": 163,
         "name": "Hunter's Mark",
-        "dmgDice": {"max": 6, "min": 1},
+        "dmgDice": {"dmg": "true", "max": 6, "min": 1},
         "dmgType": "",
         "dmgDiceAmt": 1,
         "desc": [
@@ -13902,7 +13902,7 @@
     }, {
         "index": 320,
         "name": "Zephyr Strike",
-        "dmgDice": {"max": 8, "min": 1},
+        "dmgDice": {"dmg": "true", "max": 8, "min": 1},
         "dmgType": "Force",
         "dmgDiceAmt": 1,
         "desc": [
