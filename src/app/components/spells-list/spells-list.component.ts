@@ -28,8 +28,7 @@ export class SpellsListComponent implements OnInit {
     let result: number = 0;
     if(roll === 20) {
       this.nat20 = true
-      result = (mod + prof) + roll 
-      console.log(this.nat20)
+      result = (mod + prof) + roll
     } else {
       this.nat20 = false
       result = (mod + prof) + roll
@@ -51,7 +50,6 @@ export class SpellsListComponent implements OnInit {
       }
       dmgTotal += mod
     }
-    console.log('Wired up, Boss. damage', dmgTotal)
     return this.damage = dmgTotal
   }
 }

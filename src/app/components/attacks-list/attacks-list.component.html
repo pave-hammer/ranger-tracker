@@ -1,10 +1,10 @@
 
 <div class="top-banner sticky-top bg-light">
-  <p class="to-hit col-4">To Hit:</p>
+  <p class="to-hit col-4">To Hit:{{attack}}</p>
   <div class="nat20 col-4">
     <p class="nat20" *ngIf="nat20">Natural 20!</p>
   </div>
-  <p class="damage col-4">Damage:</p>
+  <p class="damage col-4">Damage:{{damage}}</p>
 </div>
 <div id="main" *ngFor="let equip of myEquip">
   <div class="card" style="width: 18rem;">
@@ -22,46 +22,10 @@
         <p class="card-text mod">{{attackAbility}} Mod: {{attackMod}}</p>
         <p class="card-text dmg">{{equip.dmgDiceAmt}}d{{equip.dmgDice.max}} {{equip.dmgType}} damage.</p>
         <div class="buttons">
-          <button class="btn btn-primary attack" (click)="attackRoll()">Attack Roll</button>
-          <button class="btn btn-primary damage" (click)="damageRoll()">Damage Roll</button>
+          <button class="btn btn-primary attack" (click)="attackRoll(attackMod)">Attack Roll</button>
+          <button class="btn btn-primary damage" (click)="damageRoll(attackMod, equip.dmgDice.max, equip.dmgDice.min, equip.dmgDiceAmt)">Damage Roll</button>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-<!-- {
-	"index": 36,
-	"name": "Longbow",
-	"equipment_category": "Weapon",
-	"weapon_category": "Martial",
-	"weapon_range": "Ranged",
-	"category_range": "Martial Ranged",
-	"cost": {
-		"quantity": 50,
-		"unit": "gp"
-	},
-	"dmgDice": {"equipped": "true", "max": 8, "min": 1},
-	"dmgType": "Piercing",
-	"dmgDiceAmt": 1,
-	"range": {
-		"normal": 5,
-		"long": null
-	},
-	"weight": 2,
-	"properties": [{
-			"name": "Ammunition",
-			"url": "http://www.dnd5eapi.co/api/weapon-properties/1"
-		}, {
-		"url": "http://www.dnd5eapi.co/api/weapon-properties/3",
-		"name": "Heavy"
-	}, {
-		"url": "http://www.dnd5eapi.co/api/weapon-properties/9",
-		"name": "Two-Handed"
-	}],
-	"url": "http://www.dnd5eapi.co/api/equipment/36"
-}, -->
