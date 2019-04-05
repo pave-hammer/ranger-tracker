@@ -14,10 +14,16 @@ export class SpellsListComponent implements OnInit {
   allSpells: any
   mySpells: Array<any> = []
   spellcastingAbility: Object = {}
+  proficiency: number = 0;
+  attack: number;
+  nat20: boolean = false;
+  damage: number;
 
   getAbilities() {
-    const res = this.abilityDataService.abilities().filter(ability => ability.name === "Wis")
-    return this.spellcastingAbility = res[0]
+    const ability = this.abilityDataService.abilities().filter(ability => ability.name === "Wis")
+    const prof = this.abilityDataService.proficiency
+    this.spellcastingAbility = ability[0]
+    this.proficiency = prof
   }
   getSpells() {
     const index: Array<number> = [163, 185, 79, 235, 209, 320]
@@ -30,10 +36,28 @@ export class SpellsListComponent implements OnInit {
   }
   attackRoll(mod, prof) {
     const roll = Math.floor(Math.random() * (21 - 1) + 1)
-    console.log("wired up boss", roll)
+    if(roll === 20) {
+      this.nat20 = true
+      return this.attack = (mod + prof) + roll
+    } else {
+      this.nat20 = false
+      return this.attack = (mod + prof) + roll
+    }
   }
   damageRoll(mod, max, min, quant) {
-    const roll = Math.floor(Math.random() * ((max + 1) - min) + min)
-    console.log("wired up boss")
+    let count: number = 0;
+    let dmgTotal: number = 0;
+    while (count < quant) {
+      if(this.nat20 === true) {
+        const roll = Math.floor(Math.random() * ((max + 1) - min) + min) * 2
+        dmgTotal += roll
+      } else {
+        const roll = Math.floor(Math.random() * ((max + 1) - min) + min)
+        dmgTotal += roll
+      }
+      dmgTotal += mod
+      ++count
+    }
+    return this.damage = dmgTotal
   }
 }

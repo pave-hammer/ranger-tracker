@@ -14,9 +14,12 @@
         <p class="card-text mod">{{spellcastingAbility.name}} Mod: {{spellcastingAbility.mod}}</p>
       </div>
       <div class="buttons">
-        <button class="btn btn-primary col-md-6" (click)="attackRoll()">Attack Roll</button>
-        <button class="btn btn-primary col-md-6" (click)="damageRoll()">Damage Roll</button>
+        <button class="btn btn-primary col-md-6" (click)="attackRoll(spellcastingAbility.mod, proficiency)">Attack Roll</button>
+        <button class="btn btn-primary col-md-6" (click)="damageRoll(spellcastingAbility.mod, spell.dmgDice.max, spell.dmgDice.min, spell.dmgDiceAmt)">Damage Roll</button>
       </div>
+      <p class="card-text" *ngIf="nat20">You rolled a Natural 20!</p>
+      <p class="card-text" *ngIf="attack">You rolled {{attack}} to hit.</p>
+      <p class="card-text" *ngIf="damage">{{damage}} {{spell.dmgType}} damage dealt.</p>
     </div>
   </div>
 </div>

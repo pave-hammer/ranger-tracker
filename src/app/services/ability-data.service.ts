@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class AbilityDataService {
   constructor() { }
 
+  proficiency: number = 3;
   abilities = () => {
     const statArray: number[] = [8, 18, 10, 12, 15, 12]
     return [
