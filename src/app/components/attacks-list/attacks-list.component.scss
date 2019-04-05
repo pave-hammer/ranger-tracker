@@ -1,0 +1,10 @@
+
+.top-banner {
+    display: flex;
+    flex-flow: row nowrap;
+    top: 91px;
+
+    .to-hit, .damage, .nat20 {
+        margin-bottom: 0;
+    }
+}

@@ -7,12 +7,14 @@ import { SpellsListComponent } from './components/spells-list/spells-list.compon
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AbilityDataService } from './services/ability-data.service';
+import { AttacksListComponent } from './components/attacks-list/attacks-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SpellsListComponent,
-    NavbarComponent
+    NavbarComponent,
+    AttacksListComponent
   ],
   imports: [
     BrowserModule,
