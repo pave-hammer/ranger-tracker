@@ -5,6 +5,11 @@
   </div>
   <p class="damage col-4">Damage: {{damage}}</p>
 </div>
+<div class="bottom-banner sticky-top bg-light">
+  <p class="to-hit col-5">Spell Slots:</p>
+  <p class="nat20 col-3">1st: {{firstLevelSlots}}/4</p>
+  <p class="damage col-4">2nd: {{secondLevelSlots}}/2</p>
+</div>
 <div id="main" *ngFor="let spell of mySpells">
   <div class="card" style="width: 18rem;">
     <div class="card-body">
@@ -15,14 +20,17 @@
       <p class="card-text components"><b>Components:</b> {{spell.components}}</p>
       <p class="card-text duration"><b>Duration:</b> {{spell.duration}}</p>
       <p class="card-text desc">{{spell.desc}}</p>
-      <div class="row" *ngIf="spell.dmgDice">
+      <div class="row" *ngIf="spell.dmgDice; else elseBlock">
         <p class="card-text dmg">{{spell.dmgDiceAmt}}d{{spell.dmgDice.max}} {{spell.dmgType}} damage.</p>
         <p class="card-text mod">{{spellcastingAbility}} Mod: {{spellcastingMod}}</p>
         <div class="buttons">
-          <button class="btn btn-primary attack" (click)="attackRoll(spellcastingMod)">Attack Roll</button>
+          <button class="btn btn-primary attack" (click)="attackRoll(spellcastingMod, spell.level)">Attack Roll</button>
           <button class="btn btn-primary damage" (click)="damageRoll(spellcastingMod, spell.dmgDice.max, spell.dmgDice.min, spell.dmgDiceAmt)">Damage Roll</button>
         </div>
       </div>
+      <ng-template #elseBlock>
+        <button class="btn btn-primary" (click)="useSpell(spell.level)">Use Spell</button>
+      </ng-template>
     </div>
   </div>
 </div>

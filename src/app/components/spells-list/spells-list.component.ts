@@ -17,15 +17,24 @@ export class SpellsListComponent implements OnInit {
   attack: number;
   nat20: boolean = false;
   damage: number;
+  firstLevelSlots: number = 4;
+  secondLevelSlots: number = 2;
 
   getAbilities() {
     const ability = this.abilityDataService.abilities().filter(ability => ability.name === "Wis")
     this.spellcastingAbility = ability[0].name
     this.spellcastingMod = ability[0].mod
   }
-  attackRoll(mod = 0, prof = 3) {
+  attackRoll(mod = 0, slot, prof = 3) {
     const roll = Math.floor(Math.random() * (21 - 1) + 1)
     let result: number = 0;
+    if (slot === 1) {
+      console.log(slot)
+      this.firstLevelSlots--
+    }else {
+      console.log('not so much')
+      this.secondLevelSlots--
+    }
     if(roll === 20) {
       this.nat20 = true
       result = (mod + prof) + roll
@@ -44,12 +53,19 @@ export class SpellsListComponent implements OnInit {
         dmgTotal += roll
         ++count
       } else {
-        const roll = Math.floor(Math.random() * ((max + 1) - min) + min) *2
+        const roll = Math.floor(Math.random() * ((max + 1) - min) + min) * 2
         dmgTotal += roll
         ++count
       }
       dmgTotal += mod
     }
     return this.damage = dmgTotal
+  }
+  useSpell = (slot) => {
+    if(slot === 1) {
+      return this.firstLevelSlots--
+    } else {
+      return this.secondLevelSlots--
+    }
   }
 }
