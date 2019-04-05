@@ -1,0 +1,15 @@
+<nav class="navbar navbar-light bg-light nav-item"> <!--*ngFor="let ability of abilities"-->
+  <!-- <div class="navbar-cont"> -->
+  <!-- <div class="row">
+    <button class="btn btn-primary col-md-6">Spells</button>
+    <button class="btn btn-primary col-md-6">Attacks</button>
+  </div> -->
+  <div class="stat-wrapper" *ngFor="let ability of abilities">
+    <div class="stat-container col-md-2">
+      <p class="stat-info name"><b>{{ability.name}}</b></p>
+      <p class="stat-info stat">{{ability.stat}}</p>
+      <p class="stat-info mod">Mod: {{ability.mod}}</p>
+    </div>
+  </div>
+  <!-- </div> -->
+</nav>

@@ -1,0 +1,22 @@
+
+.navbar-cont {
+    display: flex;
+    flex-direction: column;
+}
+.nav-item {
+    padding: 0;
+}
+.stat-container{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, .5);
+    border-radius: 3px;
+    padding: 2px;
+
+    .stat-info {
+        margin: 2px;
+    }
+    .name{
+        border-bottom: 1px solid rgba(0, 0, 0, .3);
+    }
+}
