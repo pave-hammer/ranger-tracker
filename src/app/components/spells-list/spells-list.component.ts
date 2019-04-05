@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import Spells from '../../../assets/spells.json';
 
 @Component({
-  selector: 'app-spells-list',
+  selector: 'spells-list',
   templateUrl: './spells-list.component.html',
   styleUrls: ['./spells-list.component.scss']
 })

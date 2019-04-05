@@ -1,10 +1,16 @@
-
-.navbar-cont {
-    display: flex;
-    flex-direction: column;
-}
-.nav-item {
+.navbar {
     padding: 0;
+}
+.navbar-brand {
+    margin: 0 0 0 70px;
+}
+.test {
+    display: flex;
+    flex-flow: row nowrap;
+
+    .btn {
+        min-width: 100%;
+    }
 }
 .stat-container{
     display: flex;
