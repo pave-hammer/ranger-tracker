@@ -24,3 +24,13 @@
         margin-left: 14px;
     }
 }
+
+.top-banner {
+    display: flex;
+    flex-flow: row nowrap;
+    top: 134px;
+
+    .to-hit, .damage, .nat20 {
+        margin-bottom: 0;
+    }
+}

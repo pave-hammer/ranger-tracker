@@ -1,4 +1,5 @@
 
+<!-- <spells-list (attack)="attackRoll($event)"></spells-list> -->
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
   <div class="stat-wrapper" *ngFor="let ability of abilities">
     <div class="stat-container col-md-2">
@@ -22,9 +23,5 @@
         </li>
       </ul>
     </div>
-  </div>
-  <div class="rollInfoCont">
-    <p class="to-hit">To Hit: {{attackRoll}}</p>
-    <p class="dmg">Damage: {{damageRoll}}</p>
   </div>
 </nav>

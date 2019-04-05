@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SpellsListComponent } from './components/spells-list/spells-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { AbilityDataService } from './services/ability-data.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AbilityDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -14,14 +14,44 @@ export class SpellsListComponent implements OnInit {
   mySpells: Array<any> = this.abilityDataService.mySpells
   spellcastingAbility: string = "";
   spellcastingMod: number = 0;
+  attack: number;
+  nat20: boolean = false;
+  damage: number;
 
   getAbilities() {
     const ability = this.abilityDataService.abilities().filter(ability => ability.name === "Wis")
     this.spellcastingAbility = ability[0].name
     this.spellcastingMod = ability[0].mod
   }
-
-  attackRoll = (mod) => {
-    return this.abilityDataService.attackRoll(mod)
+  attackRoll(mod = 0, prof = 3) {
+    const roll = Math.floor(Math.random() * (21 - 1) + 1)
+    let result: number = 0;
+    if(roll === 20) {
+      this.nat20 = true
+      result = (mod + prof) + roll 
+      console.log(this.nat20)
+    } else {
+      this.nat20 = false
+      result = (mod + prof) + roll
+    }
+    return this.attack = result
+  }
+  damageRoll(mod, max, min, quant) {
+    let count: number = 0;
+    let dmgTotal: number = 0;
+    while (count < quant) {
+      if(!this.nat20) {
+        const roll = Math.floor(Math.random() * ((max + 1) - min) + min)
+        dmgTotal += roll
+        ++count
+      } else {
+        const roll = Math.floor(Math.random() * ((max + 1) - min) + min) *2
+        dmgTotal += roll
+        ++count
+      }
+      dmgTotal += mod
+    }
+    console.log('Wired up, Boss. damage', dmgTotal)
+    return this.damage = dmgTotal
   }
 }
