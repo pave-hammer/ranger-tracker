@@ -1,3 +1,4 @@
+
 <div class="top-banner sticky-top bg-light">
   <p class="to-hit col-4">To Hit:</p>
   <div class="nat20 col-4">
@@ -5,3 +6,65 @@
   </div>
   <p class="damage col-4">Damage:</p>
 </div>
+<div id="main" *ngFor="let equip of myEquip">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{equip.name}}</h5>
+      <p class="card-text value"><i>Cost: {{equip.cost.quantity}} {{equip.cost.unit}}</i></p>
+      <p class="card-text equip-properties">
+        <b>Properties:</b>
+        <div class="" *ngFor="let property of equip.properties">
+            <p class="card-text">{{property.name}}</p>
+        </div>
+      <!-- </p> -->
+      <p class="card-text range"><b>Range:</b> {{equip.range}}</p>
+      <p class="card-text components"><b>Components:</b></p>
+      <p class="card-text duration"><b>Duration:</b> </p>
+      <p class="card-text desc"></p>
+      <div class="row" *ngIf="equip.dmgDice">
+        <p class="card-text dmg">{{equip.dmgDiceAmt}}d{{equip.dmgDice.max}} {{equip.dmgType}} damage.</p>
+        <!-- <p class="card-text mod">{{spellcastingAbility}} Mod: {{spellcastingMod}}</p> -->
+        <div class="buttons">
+          <button class="btn btn-primary attack" (click)="attackRoll()">Attack Roll</button>
+          <button class="btn btn-primary damage" (click)="damageRoll()">Damage Roll</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- {
+	"index": 36,
+	"name": "Longbow",
+	"equipment_category": "Weapon",
+	"weapon_category": "Martial",
+	"weapon_range": "Ranged",
+	"category_range": "Martial Ranged",
+	"cost": {
+		"quantity": 50,
+		"unit": "gp"
+	},
+	"dmgDice": {"equipped": "true", "max": 8, "min": 1},
+	"dmgType": "Piercing",
+	"dmgDiceAmt": 1,
+	"range": {
+		"normal": 5,
+		"long": null
+	},
+	"weight": 2,
+	"properties": [{
+			"name": "Ammunition",
+			"url": "http://www.dnd5eapi.co/api/weapon-properties/1"
+		}, {
+		"url": "http://www.dnd5eapi.co/api/weapon-properties/3",
+		"name": "Heavy"
+	}, {
+		"url": "http://www.dnd5eapi.co/api/weapon-properties/9",
+		"name": "Two-Handed"
+	}],
+	"url": "http://www.dnd5eapi.co/api/equipment/36"
+}, -->

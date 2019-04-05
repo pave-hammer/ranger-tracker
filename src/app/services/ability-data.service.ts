@@ -1,12 +1,20 @@
 import { Injectable } from '@angular/core';
 import Spells from '../../assets/spells.json';
+import Equipment from '../../assets/equipment.json';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AbilityDataService {
-  constructor() { this.allSpells = Spells, this.getSpells() }
+  constructor() {
+    this.allSpells = Spells,
+    this.allEquip = Equipment,
+    this.getSpells(),
+    this.getEquip()
+  }
 
+  allEquip: any;
+  myEquip: Array<any> = [];
   allSpells: any;
   mySpells: Array<any> = [];
 
@@ -15,6 +23,15 @@ export class AbilityDataService {
     const result = index.map(idx => {
       return this.allSpells.filter(spell => {
         return spell.index === idx ? this.mySpells.push(spell) : null
+      })
+    })
+    return result
+  }
+  getEquip() {
+    const index: Array<number> = [36, 28, 28, 8]
+    const result = index.map(idx => {
+      return this.allEquip.filter(equip => {
+        return equip.index === idx ? this.myEquip.push(equip) : null
       })
     })
     return result

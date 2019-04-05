@@ -1,4 +1,21 @@
 
+#main {
+    display: flex;
+    justify-content: center;
+    margin: 5px 0 0 0;
+}
+.card-text {
+    margin-bottom: 0;
+}
+.dmg {
+    margin-left: 14px;
+}
+.btn {
+    margin: 2.5px;
+}
+.attack {
+    margin-left: 14px;
+}
 .top-banner {
     display: flex;
     flex-flow: row nowrap;
@@ -7,4 +24,9 @@
     .to-hit, .damage, .nat20 {
         margin-bottom: 0;
     }
+}
+.equip-properties {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 0;
 }
