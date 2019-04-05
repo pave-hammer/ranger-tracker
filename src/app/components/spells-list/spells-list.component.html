@@ -1,4 +1,12 @@
-
+<nav class="navbar navbar-light bg-light nav-item"> <!--*ngFor="let ability of abilities"-->
+  <div class="stat-wrapper" *ngFor="let ability of abilities">
+    <div class="stat-container col-md-2">
+      <p class="stat-info name"><b>{{ability.name}}</b></p>
+      <p class="stat-info stat">{{ability.stat}}</p>
+      <p class="stat-info mod">Mod: {{ability.mod}}</p>
+    </div>
+  </div>
+</nav>
 <div id="main" *ngFor="let spell of mySpells">
   <div class="card" style="width: 18rem;">
     <div class="card-body">
