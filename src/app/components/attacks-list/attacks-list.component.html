@@ -13,17 +13,14 @@
       <p class="card-text value"><i>Cost: {{equip.cost.quantity}} {{equip.cost.unit}}</i></p>
       <p class="card-text equip-properties">
         <b>Properties:</b>
-        <div class="" *ngFor="let property of equip.properties">
+        <div *ngFor="let property of equip.properties">
             <p class="card-text">{{property.name}}</p>
         </div>
-      <!-- </p> -->
-      <p class="card-text range"><b>Range:</b> {{equip.range}}</p>
-      <p class="card-text components"><b>Components:</b></p>
-      <p class="card-text duration"><b>Duration:</b> </p>
-      <p class="card-text desc"></p>
-      <div class="row" *ngIf="equip.dmgDice">
+      <p class="card-text type"><b>Weapon Type:</b> {{equip.weapon_range}}</p>
+      <p class="card-text category"><b>Weapon Category:</b> {{equip.weapon_category}}</p>
+      <div *ngIf="equip.dmgDice">
+        <p class="card-text mod">{{attackAbility}} Mod: {{attackMod}}</p>
         <p class="card-text dmg">{{equip.dmgDiceAmt}}d{{equip.dmgDice.max}} {{equip.dmgType}} damage.</p>
-        <!-- <p class="card-text mod">{{spellcastingAbility}} Mod: {{spellcastingMod}}</p> -->
         <div class="buttons">
           <button class="btn btn-primary attack" (click)="attackRoll()">Attack Roll</button>
           <button class="btn btn-primary damage" (click)="damageRoll()">Damage Roll</button>
