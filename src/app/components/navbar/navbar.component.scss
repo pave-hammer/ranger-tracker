@@ -39,3 +39,14 @@
         margin-left: 35px;
     }
 }
+.hp {
+    margin-left: 100px;
+    
+    .health {
+        border-radius: 4px;
+        height: 40px;
+        width: 56px;
+        text-align: center;
+        text-emphasis: bold;
+    }
+}
