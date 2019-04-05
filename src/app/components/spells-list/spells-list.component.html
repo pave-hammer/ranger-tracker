@@ -9,8 +9,9 @@
       <p class="card-text components"><b>Components:</b> {{spell.components}}</p>
       <p class="card-text duration"><b>Duration:</b> {{spell.duration}}</p>
       <p class="card-text desc">{{spell.desc}}</p>
-      <div *ngIf="spell.dmgDice">
-        <p class="card-text dmg">{{spell.dmgDice.min}}d{{spell.dmgDice.max}} {{spell.dmgType}} damage.</p>
+      <div class="row" *ngIf="spell.dmgDice">
+        <p class="card-text dmg">{{spell.dmgDiceAmt}}d{{spell.dmgDice.max}} {{spell.dmgType}} damage.</p>
+        <p class="card-text mod">{{spellcastingAbility.name}} Mod: {{spellcastingAbility.mod}}</p>
       </div>
       <div class="buttons">
         <button class="btn btn-primary col-md-6" (click)="attackRoll()">Attack Roll</button>

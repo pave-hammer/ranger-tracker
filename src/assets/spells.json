@@ -7035,6 +7035,7 @@
         "name": "Hunter's Mark",
         "dmgDice": {"max": 6, "min": 1},
         "dmgType": "",
+        "dmgDiceAmt": 1,
         "desc": [
             "You choose a creature you can see within range and mystically mark it as your quarry. Until the spell ends, you deal an extra 1d6 damage to the target whenever you hit it with a weapon attack, and you have advantage on any Wisdom (Perception) or Wisdom (Survival) check you make to find it. If the target drops to 0 hit points before this spell ends, you can use a bonus action on a subsequent turn of yours to mark a new creature."
         ],
@@ -13903,6 +13904,7 @@
         "name": "Zephyr Strike",
         "dmgDice": {"max": 8, "min": 1},
         "dmgType": "Force",
+        "dmgDiceAmt": 1,
         "desc": [
             "You move like the wind. Until the spell ends, your movement doesn’t provoke opportunity attacks. Once before the spell ends, you can give yourself advantage on one weapon attack roll on your turn. That attack deals an extra 1d8 force damage on a hit. Whether you hit or miss, your walking speed increases by 30 feet until the end of that turn."
         ],
